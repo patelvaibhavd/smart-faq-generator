@@ -5,7 +5,6 @@ services:
     plan: free
     branch: main
     region: oregon
-    instances: 1
     autoDeploy: true
     buildCommand: npm install
     startCommand: npm start

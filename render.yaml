@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: smart-faq-generator
+    env: node
+    plan: free
+    branch: main
+    region: oregon
+    instances: 1
+    autoDeploy: true
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+# Notes:
+# - This manifest deploys the Node web service using the free plan.
+# - The filesystem on Render is ephemeral on the free plan. Files written to `uploads/` will not persist across deploys or instance restarts.
+#   If you need persistent storage for uploads, configure an external store (S3, DigitalOcean Spaces, etc.) and set credentials via Render Environment Variables.
